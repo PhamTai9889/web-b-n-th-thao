@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sports shop - Trang web bán đồ thể thao</title>
+    <link rel="stylesheet" href="./tai.css">
+    <link rel="stylesheet" href="./tai.java">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: #2273ff;
+            padding: 10px 20px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        header nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        header nav ul li {
+            margin: 0 10px;
+        }
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .banner {
+            background-color: #1e4eeb;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            background-color: white;
+        }
+        .product-item {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 10px;
+            width: 200px;
+            text-align: center;
+            background-color: #fff;
+        }
+        .product-item img {
+            max-width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .product-item h3 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .product-item p {
+            color: #226fff;
+            font-weight: bold;
+        }
+        .product-item button {
+            padding: 10px;
+            background-color: #2273ff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .product-item button:hover {
+            background-color: #196ee6;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .cart {
+            display: none;
+        }
+    </style>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1><a href="index.html">Sports Store</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Trang Chủ</a></li>
+                    <li><a href="#products">Sản Phẩm</a></li>
+                    <li><a href="#about">Giới Thiệu</a></li>
+                    <li><a href="#contact">Liên Hệ</a></li>
+                    <li><a href="#cart">Giỏ Hàng</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <button id="loginButton">Đăng Nhập</button>
+                <button id="registerButton">Đăng Ký</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner Section -->
+    <section id="home" class="banner">
+        <div class="container">
+            <h2>Chào Mừng Đến Với Sports Store</h2>
+            <p>Mua sắm dụng cụ và trang phục thể thao chất lượng cao!</p>
+            <a href="#products" class="btn">Xem Sản Phẩm</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <h2>Sản Phẩm Nổi Bật</h2>
+            <div class="product-list">
+                <div class="product-item">
+                    <img src="product1.jpg" alt="Giày Chạy Bộ">
+                    <h3>Giày Chạy Bộ</h3>
+                    <p>500,000₫</p>
+                    <button>Thêm vào giỏ</button>
+                </div>
+                <div class="product-item">
+                    <img src="product2.jpg" alt="Bóng Rổ">
+                    <h3>Bóng Rổ</h3>
+                    <p>300,000₫</p>
+                    <button>Thêm vào giỏ</button>
+                </div>
+                <div class="product-item">
+                    <img src="product3.jpg" alt="Thảm Yoga">
+                    <h3>Thảm Yoga</h3>
+                    <p>200,000₫</p>
+                    <button>Thêm vào giỏ</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>Giới Thiệu</h2>
+            <p>Chúng tôi cung cấp các sản phẩm thể thao chất lượng cao dành cho mọi đối tượng.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Liên Hệ</h2>
+            <form action="submit_contact.php" method="POST">
+                <label for="name">Họ Tên:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Lời Nhắn:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                <button type="submit">Gửi Lời Nhắn</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Notification Modal -->
+    <div id="notificationModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Chức năng này đang được phát triển. Vui lòng thử lại sau!</p>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Đăng Nhập</h2>
+            <form action="login.php" method="POST">
+                <label for="loginEmail">Email:</label>
+                <input type="email" id="loginEmail" name="email" required>
+                <label for="loginPassword">Mật Khẩu:</label>
+                <input type="password" id="loginPassword" name="password" required>
+                <button type="submit">Đăng Nhập</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Đăng Ký</h2>
+            <form action="register.php" method="POST">
+                <label for="registerName">Họ Tên:</label>
+                <input type="text" id="registerName" name="name" required>
+                <label for="registerEmail">Email:</label>
+                <input type="email" id="registerEmail" name="email" required>
+                <label for="registerPassword">Mật Khẩu:</label>
+                <input type="password" id="registerPassword" name="password" required>
+                <button type="submit">Đăng Ký</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Sports Store. Bản quyền thuộc về chúng tôi.</p>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
